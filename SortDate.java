@@ -10,9 +10,9 @@ class SortDate {
     }
 
     public static void main(String arg[]) {
-        Schedule schedule = new Schedule();
+        SortDate sortDate = new SortDate();
         List<String> dates = new ArrayList<String>(Arrays.asList("26 Jan 1992","31 Dec 1883","12 Jun 2018","25 Mar 2000"));
-        List<String> result = schedule.sortDates(dates);
+        List<String> result = sortDate.sortDates(dates);
         for(String r : result){
             System.out.println(r);
         }

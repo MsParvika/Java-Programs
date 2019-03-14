@@ -15,10 +15,25 @@ public class PalindromePermutation {
         return oddCount <= 1;
     }
 
+    private boolean checkPermutations2(String input){
+        int frequencyBits = 0;
+        for(char a : input.toCharArray()) {
+            if(a-'a' >=0) {
+                if((frequencyBits & 1<<(a - 'a')) == 0)
+                    frequencyBits = frequencyBits | 1<<(a - 'a');
+                else
+                    frequencyBits = frequencyBits & ~(1<<(a - 'a'));
+            }
+        }
+        return (frequencyBits & (frequencyBits-1)) == 0;
+    }
+
     public static void main(String arg[]){
         String test = "taco bbact";
         PalindromePermutation palindromePermutation = new PalindromePermutation();
         System.out.println(palindromePermutation.checkPermutations(test));
+        System.out.println(palindromePermutation.checkPermutations2(test));
+
     }
 
 
